@@ -4,6 +4,7 @@ import Alert from "./components/Alert";
 import Button from "./components/Button";
 import ListGroupStyled from "./components/ListGroup/ListGroupStyled";
 import { BsAlipay } from "react-icons/bs";
+import Like from "./components/Like";
 
 const App = () => {
   const items = ["Roma", "Milano", "Tokyo", "Londra", "Parigi"];
@@ -15,7 +16,15 @@ const App = () => {
   const [alertVisible, setAlertVisible] = useState(true);
 
   return (
-    <div className="container">
+    <div className="container py-3">
+      <Like
+        color="green"
+        size={30}
+        onStatusChange={(ciccio) =>
+          console.log("status:", ciccio ? "piaciuto" : "detestato")
+        }
+      />
+      <hr />
       <Button color="primary" onClick={() => alert("click")}>
         Apri
       </Button>
