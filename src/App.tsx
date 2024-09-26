@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Alert from "./components/Alert";
-import ListGroup from "./components/ListGroup";
+// import ListGroup from "./components/ListGroup/ListGroup";
+import Button from "./components/Button";
+import ListGroupStyled from "./components/ListGroup/ListGroupStyled";
+import { BsAlipay } from "react-icons/bs";
 
 const App = () => {
   const items = ["Roma", "Milano", "Tokyo", "Londra", "Parigi"];
@@ -13,7 +16,23 @@ const App = () => {
 
   return (
     <div className="container">
-      <ListGroup items={items} title="Città" onSelectItem={handleSelectItem} />
+      <Button color="primary" onClick={() => alert("click")}>
+        Apri
+      </Button>
+      <Button color="danger" onClick={() => alert("click")}>
+        Salva
+      </Button>
+      <Button color="warning" onClick={() => alert("click")}>
+        <BsAlipay />
+      </Button>
+      <Button onClick={() => alert("click")}>Lancia</Button>
+
+      {/* <ListGroup items={items} title="Città" onSelectItem={handleSelectItem} /> */}
+      <ListGroupStyled
+        items={items}
+        title="Città"
+        onSelectItem={handleSelectItem}
+      />
       {alertVisible && (
         <Alert onClose={() => setAlertVisible(false)}>
           <h3>Attenzione!</h3>

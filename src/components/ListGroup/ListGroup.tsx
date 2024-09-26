@@ -9,8 +9,6 @@ interface Props {
 const ListGroup = ({ items, title, onSelectItem }: Props) => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
-  items = [];
-
   return (
     <>
       <h1>{title}</h1>
