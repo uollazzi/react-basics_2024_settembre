@@ -6,7 +6,15 @@
 // import { BsAlipay } from "react-icons/bs";
 // import Like from "./components/Like";
 
+import { useState } from "react";
+import NavBar from "./components/NavBar";
+import Cart from "./components/Cart";
+import EserciziStato from "./components/EserciziStato";
+
+// import GestioneStato from "./components/GestioneStato";
+
 const App = () => {
+  const [articoliCarrello, setArticoliCarrello] = useState(["Camicia", "Bici"]);
   // const items = ["Roma", "Milano", "Tokyo", "Londra", "Parigi"];
 
   // const handleSelectItem = (item: string) => {
@@ -59,7 +67,13 @@ const App = () => {
 
   return (
     <div className="container py-3">
-      <h1>App</h1>
+      <NavBar articoliCarrelloCount={articoliCarrello.length} />
+      <Cart
+        articoliCarrello={articoliCarrello}
+        onClear={() => setArticoliCarrello([])}
+      />
+      <hr />
+      <EserciziStato />
     </div>
   );
 };
