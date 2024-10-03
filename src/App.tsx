@@ -6,15 +6,19 @@
 // import { BsAlipay } from "react-icons/bs";
 // import Like from "./components/Like";
 
-import { useState } from "react";
-import NavBar from "./components/NavBar";
-import Cart from "./components/Cart";
-import EserciziStato from "./components/EserciziStato";
+// import { useState } from "react";
+// import NavBar from "./components/NavBar";
+// import Cart from "./components/Cart";
+// import EserciziStato from "./components/EserciziStato";
+// import Form from "./components/Form";
+import FormZod from "./components/FormZod";
+// import FormControlled from "./components/FormControlled";
+// import FormRef from "./components/FormRef";
 
 // import GestioneStato from "./components/GestioneStato";
 
 const App = () => {
-  const [articoliCarrello, setArticoliCarrello] = useState(["Camicia", "Bici"]);
+  // const [articoliCarrello, setArticoliCarrello] = useState(["Camicia", "Bici"]);
   // const items = ["Roma", "Milano", "Tokyo", "Londra", "Parigi"];
 
   // const handleSelectItem = (item: string) => {
@@ -65,15 +69,21 @@ const App = () => {
   //   </div>
   // );
 
+  // return (
+  //   <div className="container py-3">
+  //     <NavBar articoliCarrelloCount={articoliCarrello.length} />
+  //     <Cart
+  //       articoliCarrello={articoliCarrello}
+  //       onClear={() => setArticoliCarrello([])}
+  //     />
+  //     <hr />
+  //     <EserciziStato />
+  //   </div>
+  // );
+
   return (
     <div className="container py-3">
-      <NavBar articoliCarrelloCount={articoliCarrello.length} />
-      <Cart
-        articoliCarrello={articoliCarrello}
-        onClear={() => setArticoliCarrello([])}
-      />
-      <hr />
-      <EserciziStato />
+      <FormZod />
     </div>
   );
 };
