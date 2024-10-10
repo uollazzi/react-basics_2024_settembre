@@ -12,7 +12,11 @@
 // import EserciziStato from "./components/EserciziStato";
 // import Form from "./components/Form";
 // import FormZod from "./components/FormZod";
+import { useState } from "react";
 import ExpenseForm from "./expense-tracker/components/ExpenseForm";
+import { Expense } from "./expense-tracker/expense";
+import ExpenseList from "./expense-tracker/components/ExpenseList";
+import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
 // import FormControlled from "./components/FormControlled";
 // import FormRef from "./components/FormRef";
 
@@ -82,11 +86,40 @@ const App = () => {
   //   </div>
   // );
 
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [expenses, setExpenses] = useState<Expense[]>([
+    {
+      id: 1,
+      description: "Bici",
+      amount: 100,
+      category: "Svago",
+    },
+  ]);
+
+  const filteredExpenses = selectedCategory
+    ? expenses.filter((s) => s.category == selectedCategory)
+    : expenses;
+
   return (
     <div className="container py-3">
       <ExpenseForm
         onNuovaSpesa={(spesa) => {
-          console.log(spesa);
+          setExpenses([...expenses, { ...spesa, id: expenses.length + 1 }]);
+        }}
+      />
+      <hr />
+      <h3>Elenco spese</h3>
+      <div className="my-3">
+        <ExpenseFilter
+          onSelectCategory={(category) => setSelectedCategory(category)}
+        />
+      </div>
+      <ExpenseList
+        expenses={filteredExpenses}
+        onDelete={(id) => {
+          if (confirm("Sei sicuro di voler eliminare la spesa?")) {
+            setExpenses(expenses.filter((e) => e.id != id));
+          }
         }}
       />
     </div>
