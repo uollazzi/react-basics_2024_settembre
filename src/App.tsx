@@ -11,7 +11,8 @@
 // import Cart from "./components/Cart";
 // import EserciziStato from "./components/EserciziStato";
 // import Form from "./components/Form";
-import FormZod from "./components/FormZod";
+// import FormZod from "./components/FormZod";
+import ExpenseForm from "./expense-tracker/components/ExpenseForm";
 // import FormControlled from "./components/FormControlled";
 // import FormRef from "./components/FormRef";
 
@@ -20,13 +21,10 @@ import FormZod from "./components/FormZod";
 const App = () => {
   // const [articoliCarrello, setArticoliCarrello] = useState(["Camicia", "Bici"]);
   // const items = ["Roma", "Milano", "Tokyo", "Londra", "Parigi"];
-
   // const handleSelectItem = (item: string) => {
   //   console.log(item);
   // };
-
   // const [alertVisible, setAlertVisible] = useState(true);
-
   // return (
   //   <div className="container py-3">
   //     <Like
@@ -47,7 +45,6 @@ const App = () => {
   //       <BsAlipay />
   //     </Button>
   //     <Button onClick={() => alert("click")}>Lancia</Button>
-
   //     {/* <ListGroup items={items} title="Città" onSelectItem={handleSelectItem} /> */}
   //     <ListGroupStyled
   //       items={items}
@@ -68,7 +65,6 @@ const App = () => {
   //     )}
   //   </div>
   // );
-
   // return (
   //   <div className="container py-3">
   //     <NavBar articoliCarrelloCount={articoliCarrello.length} />
@@ -80,10 +76,19 @@ const App = () => {
   //     <EserciziStato />
   //   </div>
   // );
+  // return (
+  //   <div className="container py-3">
+  //     <FormZod />
+  //   </div>
+  // );
 
   return (
     <div className="container py-3">
-      <FormZod />
+      <ExpenseForm
+        onNuovaSpesa={(spesa) => {
+          console.log(spesa);
+        }}
+      />
     </div>
   );
 };
