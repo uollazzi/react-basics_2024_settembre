@@ -17,7 +17,10 @@
 // import { Expense } from "./expense-tracker/expense";
 // import ExpenseList from "./expense-tracker/components/ExpenseList";
 // import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
-import Effect from "./components/Effect";
+// import Effect from "./components/Effect";
+// import { useState } from "react";
+// import ProductList from "./components/ProductList";
+import UsersAjaxService from "./components/UsersAjaxService";
 // import FormControlled from "./components/FormControlled";
 // import FormRef from "./components/FormRef";
 
@@ -86,7 +89,6 @@ const App = () => {
   //     <FormZod />
   //   </div>
   // );
-
   // const [selectedCategory, setSelectedCategory] = useState("");
   // const [expenses, setExpenses] = useState<Expense[]>([
   //   {
@@ -96,11 +98,9 @@ const App = () => {
   //     category: "Svago",
   //   },
   // ]);
-
   // const filteredExpenses = selectedCategory
   //   ? expenses.filter((s) => s.category == selectedCategory)
   //   : expenses;
-
   // return (
   //   <div className="container py-3">
   //     <ExpenseForm
@@ -125,10 +125,27 @@ const App = () => {
   //     />
   //   </div>
   // );
+  // const [selectedCategory, setSelectedCategory] = useState("");
+  // return (
+  //   <div className="container my-3">
+  //     {/* <Effect /> */}
+  //     <select
+  //       name=""
+  //       id=""
+  //       className="form-select"
+  //       onChange={(e) => setSelectedCategory(e.target.value)}
+  //     >
+  //       <option value="">Tutte</option>
+  //       <option value="svago">Svago</option>
+  //       <option value="alimentari">Alimentari</option>
+  //     </select>
+  //     <ProductList category={selectedCategory} />
+  //   </div>
+  // );
 
   return (
     <div className="container my-3">
-      <Effect />
+      <UsersAjaxService />
     </div>
   );
 };
