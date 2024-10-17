@@ -20,7 +20,8 @@
 // import Effect from "./components/Effect";
 // import { useState } from "react";
 // import ProductList from "./components/ProductList";
-import UsersAjaxService from "./components/UsersAjaxService";
+import UsersAjaxHook from "./components/UsersAjaxHook";
+// import UsersAjaxService from "./components/UsersAjaxService";
 // import FormControlled from "./components/FormControlled";
 // import FormRef from "./components/FormRef";
 
@@ -145,7 +146,8 @@ const App = () => {
 
   return (
     <div className="container my-3">
-      <UsersAjaxService />
+      {/* <UsersAjaxService /> */}
+      <UsersAjaxHook />
     </div>
   );
 };

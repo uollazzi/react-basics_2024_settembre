@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { User } from "../models/user";
-import apiClient, { AxiosError, CanceledError } from "../services/api-client";
+import { AxiosError, CanceledError } from "../services/api-client";
 import usersService from "../services/users-service";
 
 const UsersAjaxService = () => {
@@ -54,19 +54,23 @@ const UsersAjaxService = () => {
 
     setUsers(users.filter((u) => u.id != id));
 
-    apiClient.delete("/users/" + id).catch((err: AxiosError) => {
+    const { request } = usersService.deleteUser(id);
+
+    request.catch((err: AxiosError) => {
       setError(err.message);
       setUsers(originalUsers);
     });
   };
 
   const addUser = () => {
-    const newUser = { id: 0, name: "Pippo" };
+    const newUser: User = { id: 0, name: "Pippo" };
     // setUsers([...users, newUser]); // optimistic
 
     setLoading(true);
-    apiClient
-      .post<User>("/users", newUser)
+
+    const { request } = usersService.addUser(newUser);
+
+    request
       .then((res) => {
         setUsers([...users, res.data]);
         setLoading(false);
